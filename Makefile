@@ -7,8 +7,7 @@ up:
 down:
 	@docker compose down
 
-restart:
-	@docker compose restart
+restart: down up
 
 clean-restart: down up
 
