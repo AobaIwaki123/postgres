@@ -1,0 +1,337 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 17.2 (Debian 17.2-1.pgdg120+1)
+-- Dumped by pg_dump version 17.2 (Ubuntu 17.2-1.pgdg24.10+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA public IS '';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: _prisma_migrations; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public._prisma_migrations (
+    id character varying(36) NOT NULL,
+    checksum character varying(64) NOT NULL,
+    finished_at timestamp with time zone,
+    migration_name character varying(255) NOT NULL,
+    logs text,
+    rolled_back_at timestamp with time zone,
+    started_at timestamp with time zone DEFAULT now() NOT NULL,
+    applied_steps_count integer DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public._prisma_migrations OWNER TO postgres;
+
+--
+-- Name: member; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.member (
+    name text NOT NULL,
+    nickname text NOT NULL,
+    "penlightLeft" integer NOT NULL,
+    "penlightRight" integer NOT NULL,
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.member OWNER TO postgres;
+
+--
+-- Name: memberImage; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."memberImage" (
+    id integer NOT NULL,
+    "memberId" integer NOT NULL,
+    url text NOT NULL
+);
+
+
+ALTER TABLE public."memberImage" OWNER TO postgres;
+
+--
+-- Name: memberInfo; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."memberInfo" (
+    info text NOT NULL,
+    id integer NOT NULL,
+    "memberId" integer NOT NULL
+);
+
+
+ALTER TABLE public."memberInfo" OWNER TO postgres;
+
+--
+-- Name: penlightColor; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."penlightColor" (
+    id integer NOT NULL,
+    "nameEn" text NOT NULL,
+    "nameJa" text NOT NULL
+);
+
+
+ALTER TABLE public."penlightColor" OWNER TO postgres;
+
+--
+-- Data for Name: _prisma_migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public._prisma_migrations (id, checksum, finished_at, migration_name, logs, rolled_back_at, started_at, applied_steps_count) FROM stdin;
+ffaa00f2-660b-4177-9ec4-ae988f96c3c2	3d20573bfc4b7322288018c032df96d1c3def489e1e55eb8ac56c24902d2a2b9	2024-11-28 04:29:14.082646+00	20240403175035_init	\N	\N	2024-11-28 04:29:13.934703+00	1
+acb041bf-df21-45c5-824b-063a5034c849	4961dd0f9a05eff5dd4bbe6635c29d7221a69359a8695508d43145214bf05dbf	2024-11-28 04:29:14.278306+00	20240404112808_init	\N	\N	2024-11-28 04:29:14.138836+00	1
+634b23dd-f0e6-4915-ab24-7b1def8c185a	f303ae7a44c81a1a1921802536027f6d59281ab77152ea43db476863def791da	2024-11-28 04:29:14.482016+00	20240404122532_init	\N	\N	2024-11-28 04:29:14.348941+00	1
+bbd7497a-d5a6-4664-bf53-73258d0be3cd	5fc6b5d48d24e1f4990252e599a2441b53861de1c2944b1b96a790348e1ca48f	2024-11-28 04:29:14.690488+00	20240404150544_init	\N	\N	2024-11-28 04:29:14.549173+00	1
+8a91852b-a422-4faa-b55d-9a6b68726bbd	eada24d8dc017ff0ff8db4feeeaa5364dfc8f9519dbe909287d6d5546c0f69c1	2024-11-28 04:29:14.890746+00	20240525091131_init	\N	\N	2024-11-28 04:29:14.747334+00	1
+2e56fd8e-5e9c-4ee2-81e7-9b97dcb50420	7efa51f12fd8d6470fc756c05921d39b7f135c017697b41f7b7d941b3b064301	2024-11-28 04:29:15.087405+00	20241128024132_init	\N	\N	2024-11-28 04:29:14.946778+00	1
+\.
+
+
+--
+-- Data for Name: member; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.member (name, nickname, "penlightLeft", "penlightRight", id) FROM stdin;
+佐々木久美	くみてん	0	14	2
+高瀬愛奈	まなふぃ	10	8	3
+東村芽依	めいめい	9	9	4
+加藤史帆	としちゃん	14	14	5
+佐々木美玲	みーぱん	5	5	6
+金村美玖	みくちゃん	5	0	8
+河田陽菜	ひなちゃん	9	5	9
+小坂菜緒	なおちゃん	12	8	10
+富田鈴花	すずちゃん	13	13	11
+丹生明里	にぶちゃん	6	6	12
+濱岸ひより	ひよたん	6	8	13
+松田好花	このちゃん	9	3	14
+上村ひなの	ひなの	7	1	15
+髙橋未来虹	みくにん	2	13	16
+森本茉莉	まりぃ	6	14	17
+山口陽世	はるよ	3	5	18
+石塚瑶季	たまにゃん	9	5	19
+小西夏菜実	こにしん	13	14	20
+清水理央	りお	3	6	21
+正源司陽子	よーこ	6	7	22
+竹内希来里	きらり	5	7	23
+平尾帆夏	ひらほー	0	6	24
+平岡海月	みっちゃん	14	5	25
+藤島果歩	かほりん	9	14	26
+宮地すみれ	すみれ	12	7	27
+山下葉留花	はるか	8	1	28
+渡部莉奈	りなし	13	10	29
+\.
+
+
+--
+-- Data for Name: memberImage; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."memberImage" (id, "memberId", url) FROM stdin;
+1	5	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_01_01.jpg
+2	1	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_02.jpg
+3	2	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_03.jpg
+4	6	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_04.jpg
+5	3	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_05.jpg
+6	7	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_06.jpg
+7	4	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_07.jpg
+8	8	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_08.jpg
+9	9	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_09.jpg
+10	10	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_10_01.jpg
+11	11	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_11.jpg
+12	12	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_12.jpg
+13	13	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_13.jpg
+14	14	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_14.jpg
+15	15	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_15.jpg
+16	16	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_16.jpg
+17	17	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_17.jpg
+18	18	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_18.jpg
+19	19	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_19.jpg
+20	20	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_20.jpg
+21	21	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_21.jpg
+22	22	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_22_01.jpg
+23	23	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_23.jpg
+24	24	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_24.jpg
+25	25	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_25.jpg
+26	26	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_26.jpg
+27	27	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_27.jpg
+28	28	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_28.jpg
+29	29	https://storage-store.plusmember.jp/upload/images/240316_5thhinatan_towel_kobetsu_al3uhw_29.jpg
+30	5	https://cdn.hinatazaka46.com/images/14/bc2/d5ab746f4488e6a2c359c19c68667/800_800_102400.jpg
+31	1	https://cdn.hinatazaka46.com/images/14/932/d3c695a54e1693e82b5f208a900ac/800_800_102400.jpg
+32	2	https://cdn.hinatazaka46.com/images/14/3dc/6e8f270289a2720ef3b09ec9a1828/800_800_102400.jpg
+33	6	https://cdn.hinatazaka46.com/images/14/22e/b73a88009b168ed019a6146acd47f/800_800_102400.jpg
+34	3	https://cdn.hinatazaka46.com/images/14/162/3eab62083eea234bc1347ed677774/800_800_102400.jpg
+35	7	https://cdn.hinatazaka46.com/images/14/99c/0c9b9b9eb6857ee825edde1adaeb8/800_800_102400.jpg
+36	4	https://cdn.hinatazaka46.com/images/14/f33/647b34ed14dee87d8b48a19340e20/800_800_102400.jpg
+37	8	https://cdn.hinatazaka46.com/images/14/2cc/3b3a488bcb9d0d2e6cbb5e4523455/800_800_102400.jpg
+38	9	https://cdn.hinatazaka46.com/images/14/03f/c08e230efc4d2337dcfa411aca6c1/800_800_102400.jpg
+39	10	https://cdn.hinatazaka46.com/images/14/87b/c4b261b9648da062111ab3b915086/800_800_102400.jpg
+40	11	https://cdn.hinatazaka46.com/images/14/17d/4890fdb93e4399cb267e1c09574be/800_800_102400.jpg
+41	12	https://cdn.hinatazaka46.com/images/14/3d8/bb62a84f18ea3621b866615cd0b6d/800_800_102400.jpg
+42	13	https://cdn.hinatazaka46.com/images/14/a7b/3b65b6338377bac90d233be1f6264/800_800_102400.jpg
+43	14	https://cdn.hinatazaka46.com/images/14/d12/17c8893f7a8c98ffce4f623bf2cee/800_800_102400.jpg
+44	15	https://cdn.hinatazaka46.com/images/14/982/9c2180da771f1137fb6f2e2bf8ea8/400_320_102400.jpg
+45	16	https://cdn.hinatazaka46.com/images/14/d1c/6247f1e7e84d9ba9645f0ba4af7d8/400_320_102400.jpg
+46	17	https://cdn.hinatazaka46.com/images/14/256/7197fb8efe460e9525f382c6ad8cc/400_320_102400.jpg
+47	18	https://cdn.hinatazaka46.com/images/14/b27/dda588ebe53c773d3e17f365f51a7/400_320_102400.jpg
+48	19	https://cdn.hinatazaka46.com/images/14/7b7/d25b1f7c7556b25229900b201b59b/800_800_102400.jpg
+49	20	https://cdn.hinatazaka46.com/images/14/226/956eeaaadb34ac5f436cd64ba0d7a/800_800_102400.jpg
+50	21	https://cdn.hinatazaka46.com/images/14/e0b/ee1dedfe251524d75edb2c73a83cf/800_800_102400.jpg
+51	22	https://cdn.hinatazaka46.com/images/14/8d9/3801e64e2e73f9f3764d9c22dbe5b/800_800_102400.jpg
+52	23	https://cdn.hinatazaka46.com/images/14/3e6/c899d9982ae9a514a4805d1dc91de/800_800_102400.jpg
+53	24	https://cdn.hinatazaka46.com/images/14/e80/401925eb321ce83c15be176f560f7/800_800_102400.jpg
+54	25	https://cdn.hinatazaka46.com/images/14/b9a/ee11dd274378f1d53665af3f2ec5d/800_800_102400.jpg
+55	26	https://cdn.hinatazaka46.com/images/14/8c8/eaaefcef06ef82f4dd192b89d5b35/800_800_102400.jpg
+56	27	https://cdn.hinatazaka46.com/images/14/f97/a3059a71e1e9e7144ad22bc1db8c7/800_800_102400.jpg
+57	28	https://cdn.hinatazaka46.com/images/14/0d2/65d686c4dbcc3d93e1fee25dfd6d8/800_800_102400.jpg
+58	29	https://cdn.hinatazaka46.com/images/14/57b/eff9bba5716178f5dd485120015b4/800_800_102400.jpg
+\.
+
+
+--
+-- Data for Name: memberInfo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."memberInfo" (info, id, "memberId") FROM stdin;
+優し 可愛し かとし こと加藤史帆です。	1	5
+好きなラーメン：日高屋のチゲ味噌ラーメン	2	1
+幼少期からみーぱんと呼ばれているため佐々木みーぱんに改名したいと思っている	4	6
+最近ドローンの運転免許を取得	5	3
+「私びっくりしました、空が上にあって......。」はあまりにも有名	6	7
+運動神経がとても良く、SASUKEにも出場している	7	4
+活動当初おすしというニックネームに疑問を感じていたが初めてセンターになったとき、#おすしセンターでバズってしまい変えづらくなった	8	8
+「秋頃だったでしょうか、、、秋頃だったでしょうか。」が今でも忘れられない。	9	9
+活動当初から孤独キャラだったが最近山口宅に連れ込まれた	10	10
+最近ジムニーシエラを購入、富田車を買うシリーズは3作全て100万再生超	11	11
+弱いけど剣道三段持ってます！ 肩幅広い丹生明里です	12	12
+高身長 最年少 福岡出身 中学3年生 15歳 濱岸ひよりです	13	13
+納豆大好き！松田好花です	14	14
+加入当初は抜群の大喜利力でひなあいで活躍したが本人は天然キャラでいきたくないと思っていた	15	15
+席替えの際は教卓の前を希望していた	16	16
+天才()。学生時代剣道で頭を叩かれすぎてポンコツになったと思っている	17	17
+先輩でありながら年下であるという特権を生かして後輩を家に連れ込みまくっている	18	18
+たまき、元気、ノーテンキ！	19	19
+落ち込んだ時は、５２４－７７３（コニシ ナナミ）におかけ下さい♪	20	20
+みんなを照らすおひさまスマイル！	21	21
+チョコ好き！バレンタイン生まれの正源司陽子です！	22	22
+あなたの元にきらリンT細胞	23	23
+鳥取砂丘からおひさまに向かって～ひら砲！！	24	24
+福井県から漂流してきました福井県産クラゲの平岡海月です！	25	25
+のんびり北からかほりん降臨ー！！	26	26
+スマイルスマイル・・・スミレ！スミレの虜になっちゃった！	27	27
+枕を購入時、関係ないものを16ピナ購入することになり合計で72億した	28	28
+莉奈のこと推して良かろうもん	29	29
+読売ジャイアンツのファンで憧れの選手は矢野謙次	3	2
+\.
+
+
+--
+-- Data for Name: penlightColor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."penlightColor" (id, "nameEn", "nameJa") FROM stdin;
+0	pastelblue	パステルブルー
+1	emeraldgreen	エメラルドグリーン
+2	green	グリーン
+3	pearlgreen	パールグリーン
+4	lightgreen	ライトグリーン
+5	yellow	イエロー
+6	orange	オレンジ
+7	red	レッド
+8	white	ホワイト
+9	sakurapink	サクラピンク
+10	pink	ピンク
+11	passionpink	パッションピンク
+12	violet	バイオレット
+13	purple	パープル
+14	blue	ブルー
+\.
+
+
+--
+-- Name: _prisma_migrations _prisma_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public._prisma_migrations
+    ADD CONSTRAINT _prisma_migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: memberImage memberImage_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."memberImage"
+    ADD CONSTRAINT "memberImage_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: memberInfo memberInfo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."memberInfo"
+    ADD CONSTRAINT "memberInfo_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: member member_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.member
+    ADD CONSTRAINT member_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: penlightColor penlightColor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."penlightColor"
+    ADD CONSTRAINT "penlightColor_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE USAGE ON SCHEMA public FROM PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
